@@ -1,5 +1,6 @@
 package com.waitfor.study.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -21,6 +22,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableSwagger2WebMvc
 public class SwaggerConfig {
 
+    @Value(value = "${swagger.enabled}")
+    private Boolean swaggerEnabled;
     /**
      * 通过 createRestApi函数来构建一个DocketBean
      * 函数名,可以随意命名,喜欢什么命名就什么命名
@@ -31,6 +34,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())//调用apiInfo方法,创建一个ApiInfo实例,里面是展示在文档页面信息内容
                 //分组名称
                 .groupName("2.0.7")
+                .enable(swaggerEnabled)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.waitfor.study.controller"))
                 .paths(PathSelectors.any())
