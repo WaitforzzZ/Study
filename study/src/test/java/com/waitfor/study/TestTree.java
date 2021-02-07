@@ -1,4 +1,4 @@
-package com.wisoft.ghzs.controller;
+package com.waitfor.study;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,19 +8,20 @@ public class TestTree {
 	
 	public static void main(String[] args) {
 		TempDto d = new TempDto("1", "节点1","root", true);
-		TempDto d1 = new TempDto("1.1", "节点1.1","1", false);
-		TempDto d2 = new TempDto("1.2", "节点1.2","1", true);
-		TempDto d3 = new TempDto("1.2.1", "节点1.2.1","1.2", false);
-		TempDto d4 = new TempDto("1.2.2", "节点1.2.2","1.2", true);
-		TempDto d5 = new TempDto("1.2.2.1", "节点1.2.2.1","1.2.2", false);
-		TempDto d6 = new TempDto("2", "节点2","root", true);
-		TempDto d7 = new TempDto("2.1", "节点2.1","2", false);
-		TempDto d8 = new TempDto("2.2", "节点2.2","2", true);
-		TempDto d9 = new TempDto("2.2.1", "节点2.2.1","2.2", false);
+		TempDto d1 = new TempDto("1.1", "节点1.1","1", true);
+		TempDto d2 = new TempDto("1.1.1", "节点1.1.1","1.1", false);
+		TempDto d3 = new TempDto("1.2", "节点1.2","1", true);
+		TempDto d4 = new TempDto("1.2.1", "节点1.2.1","1.2", false);
+		TempDto d5 = new TempDto("1.2.2", "节点1.2.2","1.2", true);
+		TempDto d6 = new TempDto("1.2.2.1", "节点1.2.2.1","1.2.2", false);
+		/*TempDto d7 = new TempDto("2", "节点2","root", true);
+		TempDto d8 = new TempDto("2.1", "节点2.1","2", false);
+		TempDto d9 = new TempDto("2.2", "节点2.2","2", true);
+		TempDto d10 = new TempDto("2.2.1", "节点2.2.1","2.2", false);*/
 		List<TempDto> list = new ArrayList<TempDto>();
 		list.add(d);list.add(d1);list.add(d2);list.add(d3);list.add(d4);
-		list.add(d5);list.add(d6);list.add(d7);list.add(d8);list.add(d9);
-		
+		list.add(d5);list.add(d6);/*list.add(d7);list.add(d8);list.add(d9);
+		list.add(d10);*/
 		List<TempDto> reslist = new ArrayList<TempDto>();
 		for(int i=0;i<list.size();i++){
 			TempDto t = list.get(i);
@@ -44,7 +45,7 @@ public class TestTree {
 					jdto.setChildren(getChildren(jdto.getId(), j+1, list));
 				}
 			}else{
-				break;
+				continue;
 			}
 		}
 		return clildren;
