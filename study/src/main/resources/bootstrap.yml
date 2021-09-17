@@ -1,0 +1,14 @@
+server:
+  port: 56010  #  启动端口,命令行可以注入
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      config:
+        # 配置中心的地址
+        server-addr: 127.0.0.1:8848
+        # 配置文件的格式
+        file-extension: yaml
+        namespace: 413a2c9d-f35f-45e3-9d6e-d1e2a663e2c3
+        group: DEFAULT_GROUP
